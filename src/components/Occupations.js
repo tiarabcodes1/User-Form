@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default function Occupations({ occupations }) {
   return (
@@ -6,9 +6,9 @@ export default function Occupations({ occupations }) {
       <option value="default" disabled hidden>
         Choose Occupation
       </option>
-      {occupations.map((job, idx) => (
-        <option className="job" value={job} key={idx}>
-          {job}
+      {occupations.map((occupation, idx) => (
+        <option className="job" value={occupation} key={idx}>
+          {occupation}
         </option>
       ))}
     </>

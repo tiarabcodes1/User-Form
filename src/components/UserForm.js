@@ -1,6 +1,6 @@
-import React from "react";
-import Occupations from "./Occupations";
-import States from "./States";
+import React from 'react';
+import Occupations from './Occupations';
+import States from './States';
 
 export default function UserForm({ 
     occupations,
@@ -23,7 +23,6 @@ export default function UserForm({
           id="name" 
           placeholder="Full Name" />
       </label>
-
       <label>
         Enter your password:
         <input 

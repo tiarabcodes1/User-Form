@@ -1,15 +1,15 @@
 import '../styles/App.css';
-import React, { useEffect, useState } from "react";
-import Error from "./Error";
+import React, { useEffect, useState } from 'react';
+import Error from './Error';
 import UserForm from './UserForm';
 import Header from './Header'
 
 const initialFormData = {
-  name: "",
-  password: "",
-  email: "",
-  occupation: "",
-  state: "",
+  name: '',
+  password: '',
+  email: '',
+  occupation: '',
+  state: '',
 };
 
 export default function App() {
@@ -21,7 +21,7 @@ export default function App() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    fetch("https://frontend-take-home.fetchrewards.com/form")
+    fetch('https://frontend-take-home.fetchrewards.com/form')
       .then(res => res.json())
       .then(
         result => {
@@ -31,7 +31,6 @@ export default function App() {
         error => {
           setError(error);
         });
-
   }, []);
 
   const handleChange = e => {
@@ -44,10 +43,10 @@ export default function App() {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (Object.values(formData).indexOf("") === -1) {
+    if (Object.values(formData).indexOf('') === -1) {
       const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       };
 
@@ -71,7 +70,7 @@ export default function App() {
   } else if (submitted) {
     return (
       <div className="success">
-        <img src={"./images/header-logo.png"} alt={"Fetch Rewards Logo"} />
+        <img src={'./images/header-logo.png'} alt={'Fetch Rewards Logo'} />
         <h1>Thank you for submitting the form!</h1>
       </div>
     );
