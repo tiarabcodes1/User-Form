@@ -1,4 +1,4 @@
-import './App.css';
+import '../styles/App.css';
 import React, { useEffect, useState } from "react";
 import Error from "./Error";
 import UserForm from './UserForm';
@@ -11,9 +11,10 @@ const initialFormData = {
   occupation: "",
   state: "",
 };
+
 export default function App() {
-  const [occupation, setOccupations] = useState([]);
-  const [state, setStates] = useState([]);
+  const [occupations, setOccupations] = useState([]);
+  const [states, setStates] = useState([]);
   const [error, setError] = useState(null);
   const [formData, updateFormData] = useState(initialFormData);
   const [valid, setValid] = useState(true);
@@ -21,44 +22,35 @@ export default function App() {
 
   useEffect(() => {
     fetch("https://frontend-take-home.fetchrewards.com/form")
-        
       .then(res => res.json())
       .then(
         result => {
           setOccupations(result.occupations);
-        },
-        error => {
-          setError(error);
-        }
-      );
-
-    fetch("https://frontend-take-home.fetchrewards.com/form")
-      .then(res => res.json())
-      .then(
-        result => {
           setStates(result.states);
         },
         error => {
           setError(error);
-        }
-      );
+        });
+
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     updateFormData({
       ...formData,
       [e.target.name]: e.target.value.trim()
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
+
     if (Object.values(formData).indexOf("") === -1) {
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
       };
+
       fetch("https://frontend-take-home.fetchrewards.com/form", requestOptions)
         .then(response => response)
         .then(
@@ -79,8 +71,8 @@ export default function App() {
   } else if (submitted) {
     return (
       <div className="success">
-        <img src={"./images/header-logo.png"} alt={"Fetch Rewards Logo"}/>
-        <h1>Thank you for submitting the form!</h1> 
+        <img src={"./images/header-logo.png"} alt={"Fetch Rewards Logo"} />
+        <h1>Thank you for submitting the form!</h1>
       </div>
     );
   } else {
@@ -88,15 +80,13 @@ export default function App() {
       <div className="App">
         <Header />
         <UserForm
-          occupation={occupation}
-          state={state}
+          occupations={occupations}
+          states={states}
           handleSubmit={handleSubmit}
           handleChange={handleChange}
-          />
-          {!valid && <h2>Opps! Looks like you missed something.</h2>}
+        />
+        {!valid && <h2>Opps! Looks like you missed something.</h2>}
       </div>
     );
   }
 }
-
-
