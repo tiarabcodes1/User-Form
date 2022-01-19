@@ -7,7 +7,7 @@ export default function Occupations({occupation}){
       Choose Occupation 
     </option>
     {occupation.map((job, idx) => (
-      <option value={job} key={idx}>
+      <option className="job" value={job} key={idx}>
         {job}
       </option>
     ))}

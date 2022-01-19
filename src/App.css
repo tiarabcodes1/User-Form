@@ -1,38 +1,123 @@
+* {
+  background-color: #FFA900;
+  font-family: 'Lexend', sans-serif;
+}
+
 .App {
   text-align: center;
+ 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+label {
+  margin: 30px;
+  font-size: 25px;
+  font-weight:bolder;
+  color: #300D38;
+}
+
+header {
+display: inline-block;
+width: 100%;
+padding-bottom: 20px;
+}
+
+header, h1, img {
+  background-color: #fff;
+  font-size: 30px;
+}
+header img {
+  margin-top: 30px;
+  float: left;
+  margin-left: 15px;
+}
+
+header h1 {
+  margin: 0 auto;
+  width: 500px;
+  margin-top: 30px;
+}
+
+
+input {
+  border-radius: 25px;
+  padding: 10px;
+  background-color: #FFB926;
+  margin-left: 10px;
+  color: rgb(102, 99, 99);
+  border-style: solid;
+  border-color: #300D38;
+  border-width: 5px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-style: oblique;
+}
+
+.select {
+  display: flex;
+  flex-direction: column;
+  /* margin: 30px auto; */
+  align-self: center;
+  justify-content: space-between;
+  width: 30%;
+}
+
+select {
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  border-style: solid;
+  border-color: #300D38;
+  border-width: 5px;
+  margin-top: 10px;
+}
+.submit input {
+  margin-top: 20px;
+  padding: 30px;
+  font-size: 20px;
+  background-color: #300D38;
   color: white;
+  margin-bottom: 10px;
+  box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.submit input:hover {
+  cursor: pointer;
+  transition-property: background;
+  background: black;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+  border-color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+option {
+  background: #300D38;
+  color: #fff;
 }
+
+.success h1{
+  margin-top: 200px;
+  text-align: center;
+  background-color: #FFA900;
+}
+
+.success h1:hover {
+  transform: skewY(-15deg);
+}
+
+.success img {
+  background-color: #FFA900;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+h2 {
+  color: red;
+  font-size: 30px;
+}
+
+
