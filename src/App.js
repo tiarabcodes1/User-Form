@@ -2,6 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from "react";
 import Error from "./Error";
 import UserForm from './UserForm';
+import Header from './Header'
 
 const initialFormData = {
   name: "",
@@ -10,7 +11,6 @@ const initialFormData = {
   occupation: "",
   state: "",
 };
-
 export default function App() {
   const [occupation, setOccupations] = useState([]);
   const [state, setStates] = useState([]);
@@ -22,23 +22,23 @@ export default function App() {
   useEffect(() => {
     fetch("https://frontend-take-home.fetchrewards.com/form")
         
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(
-        (result) => {
+        result => {
           setOccupations(result.occupations);
         },
-        (error) => {
+        error => {
           setError(error);
         }
       );
 
     fetch("https://frontend-take-home.fetchrewards.com/form")
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(
-        (result) => {
+        result => {
           setStates(result.states);
         },
-        (error) => {
+        error => {
           setError(error);
         }
       );
@@ -63,11 +63,9 @@ export default function App() {
         .then(response => response)
         .then(
           data => {
-            console.log("Data Response", data)
             data.status === 200 && setSubmitted(true);
           },
           error => {
-            console.log("error string", error)
             setError(error);
           }
         );
@@ -80,14 +78,15 @@ export default function App() {
     return <Error error={error} />;
   } else if (submitted) {
     return (
-      <>
-        <h1>thank you for submitting the form!</h1>
-      </>
+      <div className="success">
+        <img src={"./images/header-logo.png"}/>
+        <h1>Thank you for submitting the form!</h1> 
+      </div>
     );
   } else {
     return (
       <div className="App">
-        <h1>Fill out the form to get started!</h1>
+        <Header />
         <UserForm
           occupation={occupation}
           state={state}

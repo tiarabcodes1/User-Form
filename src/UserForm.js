@@ -22,12 +22,13 @@ export default function UserForm({
 
       <label>
         Enter your password:
-        <input type="password" onChange={handleChange} name="password" id="password"/>
+        <input type="password" onChange={handleChange} name="password" id="password" placeholder="Password" minLength="7"/>
       </label>
       <label>
         Enter your email:
-        <input type="text" onChange={handleChange} name="email" id="email" />
+        <input type="text" onChange={handleChange} name="email" id="email" placeholder="Email"/>
       </label>
+      <div className="select">
       <select
       onChange={handleChange}
       name="occupation"
@@ -41,7 +42,8 @@ export default function UserForm({
       defaultValue="default">
         <States state={state} />
       </select>
-      <div>
+      </div>
+      <div className="submit">
         <input type="submit" value="Submit!" />
       </div>
     </form>
