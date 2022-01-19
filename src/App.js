@@ -79,7 +79,7 @@ export default function App() {
   } else if (submitted) {
     return (
       <div className="success">
-        <img src={"./images/header-logo.png"}/>
+        <img src={"./images/header-logo.png"} alt={"Fetch Rewards Logo"}/>
         <h1>Thank you for submitting the form!</h1> 
       </div>
     );
